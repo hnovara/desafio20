@@ -1,0 +1,38 @@
+Se desea desarrollar una pequeña aplicación en JavaScript orientada a objetos que permita el registro de usuarios a través de un formulario y su posterior visualización en una tabla.
+
+La lógica de negocio consiste en crear una clase Usuario que tenga como propiedades un identificador único, un nombre, un correo electrónico y una contraseña. Además, se debe crear una clase Formulario que contenga los campos necesarios para el registro de usuarios (nombre, correo electrónico y contraseña) y permita la validación de los datos ingresados por el usuario. Finalmente, se debe crear una clase TablaUsuarios que permita visualizar la lista de usuarios registrados en una tabla.
+
+Los datos de entrada 
+
+* Son los datos ingresados por el usuario en el formulario de registro (nombre, correo electrónico y contraseña). 
+
+Los datos de salida 
+
+* Son la lista de usuarios actualizada luego de registrar un nuevo usuario.
+
+Requerimientos funcionales:
+
+* Registro de usuario a través de un formulario.
+* Validación de los datos ingresados por el usuario en el formulario.
+* Visualización de la lista de usuarios registrados en una tabla.
+
+Requerimientos no funcionales:
+
+* La aplicación debe ser fácil de usar e intuitiva.
+* La aplicación debe ser desarrollada usando el paradigma orientado a objetos.
+* La aplicación debe ser responsive y adaptarse a diferentes tamaños de pantalla.
+
+Pasos a seguir:
+
+1.Crear la clase Usuario con las propiedades id, nombre, correo y contraseña.
+2.Crear la clase Formulario con los campos necesarios para el registro de usuarios (nombre, correo y contraseña) y los métodos validarNombre, validarCorreo y validarContraseña para validar los datos ingresados por el usuario.
+3.En el método validarNombre de la clase Formulario, verificar que el campo nombre no esté vacío y contenga al menos 3 caracteres.
+4.En el método validarCorreo de la clase Formulario, verificar que el campo correo no esté vacío y contenga una dirección de correo electrónico válida (usando una expresión regular).
+5.En el método validarContrasenia de la clase Formulario, verificar que el campo contraseña no esté vacío y contenga al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número.
+6.En el método registrarUsuario de la clase Formulario, crear una nueva instancia de la clase Usuario con los datos ingresados por el usuario y agregarla a una lista de usuarios registrados.
+7.Crear la clase TablaUsuarios con un método render que genere una tabla HTML con los datos de los usuarios registrados.
+8.Crear una instancia de la clase Formulario y agregarla al DOM para que el usuario pueda ingresar sus datos.
+9.Agregar un evento al formulario para que al hacer submit se llame al método registrarUsuario de la clase Formulario y se actualice la lista de usuarios y la tabla de usuarios registrados.
+10.Crear una instancia de la clase TablaUsuarios y agregarla al DOM para que el usuario pueda visualizar la lista de usuarios registrados.
+Probar la aplicación con algunos valores de prueba para verificar su correcto funcionamiento.
+
