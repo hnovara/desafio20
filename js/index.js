@@ -53,13 +53,10 @@ class TablaUsuarios {
         for (let i = 0; i < this.usuarios.length; i++) {
             const usuario = this.usuarios[i];
             const row = document.createElement('tr');
-            const idCell = document.createElement('td');
-            idCell.textContent = usuario.id;
             const nombreCell = document.createElement('td');
             nombreCell.textContent = usuario.nombre;
             const correoCell = document.createElement('td');
             correoCell.textContent = usuario.correo;
-            row.appendChild(idCell);
             row.appendChild(nombreCell);
             row.appendChild(correoCell);
             tablaBody.appendChild(row);
