@@ -30,7 +30,8 @@ class Formulario {
     }
 
     validarContraseña(contraseña) {
-        return contraseña.trim().length >= 4;
+        const contraseñaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        return contraseñaRegex.test(contraseña);
     }
 
     registrarUsuario(nombre, correo, contraseña) {
@@ -40,24 +41,31 @@ class Formulario {
     }
 }
 
-
 class TablaUsuarios {
     constructor(usuarios) {
         this.usuarios = usuarios;
     }
 
     render() {
-        const tabla = document.getElementById('tablaUsuarios').getElementsByTagName('tbody')[0];
-        tabla.innerHTML = '';
-        this.usuarios.forEach(usuario => {
-            const row = tabla.insertRow();
-            row.insertCell(0).textContent = usuario.id;
-            row.insertCell(1).textContent = usuario.nombre;
-            row.insertCell(2).textContent = usuario.correo;
-        });
+        const tablaBody = document.getElementById('tablaUsuarios').getElementsByTagName('tbody')[0];
+        tablaBody.innerHTML = ''; 
+
+        for (let i = 0; i < this.usuarios.length; i++) {
+            const usuario = this.usuarios[i];
+            const row = document.createElement('tr');
+            const idCell = document.createElement('td');
+            idCell.textContent = usuario.id;
+            const nombreCell = document.createElement('td');
+            nombreCell.textContent = usuario.nombre;
+            const correoCell = document.createElement('td');
+            correoCell.textContent = usuario.correo;
+            row.appendChild(idCell);
+            row.appendChild(nombreCell);
+            row.appendChild(correoCell);
+            tablaBody.appendChild(row);
+        }
     }
 }
-
 
 const formulario = new Formulario();
 const tablaUsuarios = new TablaUsuarios(formulario.usuariosRegistrados);
