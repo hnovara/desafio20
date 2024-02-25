@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="container">
+        <form id="registroForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required><br>
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" required><br>
+            <label for="contrasenia">Contraseña:</label>
+            <input type="password" id="contrasenia" required><br>
+            <button type="submit">Registrar</button>
+        </form>
+        
+        <table id="tablaUsuarios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
 
     <script src="./js/index.js"></script>
 </body>
