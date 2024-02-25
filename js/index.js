@@ -7,9 +7,17 @@ class Usuario {
     }
 }
 
+
+const usuariosIniciales = [
+    new Usuario(1, "Hernán Novara", "hnovara@hotmail.com", "Pass1234"),
+    new Usuario(2, "Natalia Novara", "nnovara@hotmail.com", "Pass1234"),
+    new Usuario(3, "Federico Novara", "fnovara@hotmail.com", "Pass1234")
+];
+
+
 class Formulario {
     constructor() {
-        this.usuariosRegistrados = [];
+        this.usuariosRegistrados = usuariosIniciales;
     }
 
     validarNombre(nombre) {
@@ -22,16 +30,16 @@ class Formulario {
     }
 
     validarContraseña(contraseña) {
-        const contraseñaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-        return contraseñaRegex.test(contraseña);
+        return contraseña.trim().length >= 4;
     }
-        
+
     registrarUsuario(nombre, correo, contraseña) {
         const id = this.usuariosRegistrados.length + 1;
         const usuario = new Usuario(id, nombre, correo, contraseña);
         this.usuariosRegistrados.push(usuario);
     }
 }
+
 
 class TablaUsuarios {
     constructor(usuarios) {
@@ -50,8 +58,10 @@ class TablaUsuarios {
     }
 }
 
+
 const formulario = new Formulario();
 const tablaUsuarios = new TablaUsuarios(formulario.usuariosRegistrados);
+
 
 document.getElementById('registroForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -64,8 +74,9 @@ document.getElementById('registroForm').addEventListener('submit', function(even
         tablaUsuarios.render();
         document.getElementById('registroForm').reset();
     } else {
-        alert('Completar los campos correctamente.');
+        alert('Debe completar los campos correctamente.');
     }
 });
+
 
 tablaUsuarios.render();
