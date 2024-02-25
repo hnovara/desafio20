@@ -1,9 +1,9 @@
 class Usuario {
-    constructor(id, nombre, correo, contrasenia) {
+    constructor(id, nombre, correo, contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
-        this.contrasenia = contrasenia;
+        this.contraseña = contraseña;
     }
 }
 
@@ -21,14 +21,14 @@ class Formulario {
         return correoRegex.test(correo);
     }
 
-    validarContrasenia(contrasenia) {
-        // Se requieren al menos 4 caracteres
-         return contrasenia.trim().length >= 4;
+    validarContraseña(contraseña) {
+        const contraseñaRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        return contraseñaRegex.test(contraseña);
     }
         
-    registrarUsuario(nombre, correo, contrasenia) {
+    registrarUsuario(nombre, correo, contraseña) {
         const id = this.usuariosRegistrados.length + 1;
-        const usuario = new Usuario(id, nombre, correo, contrasenia);
+        const usuario = new Usuario(id, nombre, correo, contraseña);
         this.usuariosRegistrados.push(usuario);
     }
 }
@@ -53,22 +53,19 @@ class TablaUsuarios {
 const formulario = new Formulario();
 const tablaUsuarios = new TablaUsuarios(formulario.usuariosRegistrados);
 
-// Agregar el formulario al DOM
 document.getElementById('registroForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const nombre = document.getElementById('nombre').value;
     const correo = document.getElementById('correo').value;
-    const contrasenia = document.getElementById('contrasenia').value;
+    const contraseña = document.getElementById('contraseña').value;
 
-    if (formulario.validarNombre(nombre) && formulario.validarCorreo(correo) && formulario.validarContrasenia(contrasenia)) {
-        formulario.registrarUsuario(nombre, correo, contrasenia);
+    if (formulario.validarNombre(nombre) && formulario.validarCorreo(correo) && formulario.validarContraseña(contraseña)) {
+        formulario.registrarUsuario(nombre, correo, contraseña);
         tablaUsuarios.render();
-        // Limpiar campos después del registro exitoso
         document.getElementById('registroForm').reset();
     } else {
-        alert('Por favor, complete los campos correctamente.');
+        alert('Completar los campos correctamente.');
     }
 });
 
-// Agregar la tabla de usuarios al DOM
 tablaUsuarios.render();
