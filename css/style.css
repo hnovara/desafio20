@@ -25,6 +25,7 @@ form {
     margin-bottom: 1rem;
 }
 form label {
+    font-size: 0.75rem;
     display: block;
     margin-bottom: 0.3125rem;
 }
@@ -40,7 +41,7 @@ form button {
     box-sizing: border-box;
 }
 form button {
-    background-color: #007bff;
+    background-color: #130081;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -51,6 +52,7 @@ form button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.75rem;
 }
 table th,
 table td {
@@ -59,14 +61,7 @@ table td {
     text-align: left;
 }
 table th {
-    background-color: #007bff;
+    background-color: #757575;
     color: #fff;
 }
 
-@media only screen and (max-width: 600px) {
-    form,
-    table {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-}
